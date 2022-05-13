@@ -9,7 +9,7 @@ from the root folder.
 This will build a docker image called `sawyer-intel`.
 
 To start the container run the
-`./launch_full.sh'
+`./launch_full.sh`
 command from the root folder.
 
 This will start the container in daemon mode and launch a `terminator` window.
