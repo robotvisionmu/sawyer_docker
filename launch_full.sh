@@ -1,6 +1,5 @@
 #!/bin/bash 
 xhost +local:`whoami`
 
-./run_command.sh -d terminator
+./run_command.sh terminator
 
-xhost -local:`whoami`
