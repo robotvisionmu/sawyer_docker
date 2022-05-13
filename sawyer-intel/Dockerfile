@@ -46,6 +46,7 @@ ros-${ROS_DISTRO}-ros-controllers \
 ros-${ROS_DISTRO}-tf-conversions \
 ros-${ROS_DISTRO}-kdl-parser \
 ros-${ROS_DISTRO}-moveit \
+ros-${ROS_DISTRO}-roslint \
 && rm -rf /var/lib/apt/lists/*
 
 ARG USER=ros
