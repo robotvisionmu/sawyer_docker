@@ -5,4 +5,4 @@ docker build $BUILD_ARGS -t sawyer-intel sawyer-intel
 
 echo "Running script"
 
-./run_command.sh -it /home/$USER/ros_sawyer/sawyer_docker/workstation_setup.sh
+./run_command.sh -i /home/$USER/ros_sawyer/sawyer_docker/workstation_setup.sh
