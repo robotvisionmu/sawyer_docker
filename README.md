@@ -3,7 +3,7 @@ Docker container definition for working with Rethink Sawyer SDK.
 
 ## Setup and usage
 To use the container you should clone the repo and then run
-`./build_full.sh'
+`./build_full.sh`
 from the root folder.
 
 This will build a docker image called `sawyer-intel`.
