@@ -16,6 +16,12 @@ wstool update
 wstool merge https://raw.githubusercontent.com/RethinkRobotics/sawyer_moveit/melodic_devel/sawyer_moveit.rosinstall
 wstool update
 
+git clone https://github.com/RethinkRobotics/sawyer_simulator.git
+git clone https://github.com/RethinkRobotics-opensource/sns_ik.git -b melodic-devel
+
+wstool merge sawyer_simulator/sawyer_simulator.rosinstall
+wstool update
+
 cd $ROS_SAWYER_DIR/ros_ws
 catkin_make
 
