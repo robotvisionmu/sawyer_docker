@@ -23,6 +23,7 @@ build-essential \
 git-core \
 python-argparse \
 python-vcstools \
+python-pip \
 ros-${ROS_DISTRO}-control-msgs \
 ros-${ROS_DISTRO}-joystick-drivers \
 ros-${ROS_DISTRO}-control-msgs \
@@ -34,7 +35,8 @@ ros-${ROS_DISTRO}-actionlib \
 ros-${ROS_DISTRO}-actionlib-msgs \
 ros-${ROS_DISTRO}-dynamic-reconfigure \
 ros-${ROS_DISTRO}-trajectory-msgs \
-ros-${ROS_DISTRO}-rospy-message-converter\
+ros-${ROS_DISTRO}-rospy-message-converter \
+ros-${ROS_DISTRO}-robot-state-publisher \
 && rm -rf /var/lib/apt/lists/*
 
 RUN apt-get update && apt-get install --no-install-recommends -y \
@@ -61,6 +63,7 @@ RUN chown -R $USER:$USER /home/$USER/.gazebo
 
 # setup entrypoint
 COPY ./ros_entrypoint.sh /
+COPY ./config.yaml /home/$USER/.ignition/fuel/
 
 RUN bash -c "chmod +x /ros_entrypoint.sh"
 
