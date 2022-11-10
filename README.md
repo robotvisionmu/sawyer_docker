@@ -38,6 +38,7 @@ To test the setup, start by launching the image
 
 From the `terminator` prompt run the following commands:
 ```
+$ cd ros_ws
 $ ./intera.sh sim
 $ roslaunch sawyer_sim_examples sawyer_pick_and_place_demo.launch
 ```
