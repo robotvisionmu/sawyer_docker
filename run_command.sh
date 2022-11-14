@@ -14,6 +14,7 @@ do
 done
 
 docker run $DAEMON --rm \
+--network host --privileged \
 --volume="/tmp/.X11-unix:/tmp/.X11-unix:rw" \
 -e DISPLAY \
 -v /dev:/dev \
@@ -25,3 +26,4 @@ docker run $DAEMON --rm \
 --volume="/etc/shadow:/etc/shadow:ro" \
 --volume="/etc/sudoers.d:/etc/sudoers.d:ro" \
 --name='ros' sawyer-intel:latest "$@"
+

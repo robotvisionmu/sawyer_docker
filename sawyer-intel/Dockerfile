@@ -9,7 +9,9 @@ RUN apt-get update && apt-get install --no-install-recommends -y \
     terminator \
     vim \
     net-tools \
+    systemd-sysv \
     iputils-ping \
+    libnss-mdns \
     && rm -rf /var/lib/apt/lists/*
 
 # From https://sdk.rethinkrobotics.com/intera/Workstation_Setup
