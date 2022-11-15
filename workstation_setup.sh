@@ -3,6 +3,16 @@
 SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
 ROS_SAWYER_DIR="$SCRIPT_DIR/.."
 
+if [ -d $ROS_SAWYER_DIR ] 
+then
+    read -p "Workspace $ROS_SAWYER_DIR folder exists. Do you wish to rebuild it [y/N]:" -n1 -r
+    echo   # (optional) move to a new line
+    if [[ ! $REPLY =~ ^[Yy]$ ]]
+    then
+        [[ "$0" = "$BASH_SOURCE" ]] && exit 1 || return 1 # handle exits from shell or function but don't exit interactive shell
+    fi
+fi
+
 source /opt/ros/$ROS_DISTRO/setup.bash
 
 mkdir -p $ROS_SAWYER_DIR/ros_ws/src

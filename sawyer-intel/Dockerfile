@@ -9,7 +9,9 @@ RUN apt-get update && apt-get install --no-install-recommends -y \
     terminator \
     vim \
     net-tools \
+    systemd-sysv \
     iputils-ping \
+    libnss-mdns \
     && rm -rf /var/lib/apt/lists/*
 
 # From https://sdk.rethinkrobotics.com/intera/Workstation_Setup
@@ -69,5 +71,6 @@ RUN bash -c "chmod +x /ros_entrypoint.sh"
 
 RUN echo source "/opt/ros/$ROS_DISTRO/setup.bash" >> /home/$USER/.bashrc
 RUN echo "if [ -f /home/$USER/ros_sawyer/ros_ws/devel/setup.bash ]; then source /home/$USER/ros_sawyer/ros_ws/devel/setup.bash; fi" >> /home/$USER/.bashrc
+RUN echo 'PS1="[SAWYER] $PS1"' >> /home/$USER/.bashrc
 
 ENTRYPOINT ["/ros_entrypoint.sh"]
