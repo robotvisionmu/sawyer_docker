@@ -40,4 +40,4 @@ cp $ROS_SAWYER_DIR/ros_ws/src/intera_sdk/intera.sh $ROS_SAWYER_DIR/ros_ws
 # set the ros_version
 sed -i "s/ros_version=.*/ros_version=$ROS_DISTRO/" intera.sh
 
-echo "source $ROS_SAWYER_DIR/ros_ws/devel/setup.bash" >> /home/john/.bashrc
+echo "source $ROS_SAWYER_DIR/ros_ws/devel/setup.bash" >> /home/$USER/.bashrc
