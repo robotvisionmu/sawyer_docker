@@ -1,6 +1,6 @@
 FROM ros:melodic-perception
 
-RUN apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys C1CF6E31E6BADE8868B172B4F42ED6FBAB17C654
+RUN apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 4B63CF8FDE49746E98FA01DDAD19BAB3CBF125EA
 
 # install bootstrap tools
 RUN apt-get update && apt-get install --no-install-recommends -y \
