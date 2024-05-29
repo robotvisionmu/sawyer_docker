@@ -32,7 +32,7 @@ The `.bashrc` file in the home folder will source the system ROS and `ros_ws` `s
 
 To add new packages it is recommended that they be placed in `/home/$USER/ros_sawyer/ros_ws/src/` since this will mean they are included as part of the `ros_ws` workspace and so avoid having to add new `souce` lines the `.bashrc`.
 
-## Testing the setup
+### Testing the setup
 To test the setup, start by launching the image
 ```./launch_full.sh```
 
@@ -75,5 +75,21 @@ systemd-resolve --set-mdns=yes --interface=<<ETHERNET_INTERFACE_NAME>>
 ```
 
 To test your setup you should unplug and plug in your ethernet cable to your Sawyer robot. Ensure that you can ping the robot from your host terminal using the robot's .local hostname i.e. `ROBOTSERIALNO.local`. Then launch the docker container (i.e.`./launch_full.sh`). From inside your container you should then try to ping your robot using its `ROBOTSERIALNO.local` hostname.
+
+### Configure `intera.sh`
+Finally, you will need to add your robot name and hostname to the `intera.sh` script. You will find this in the `ros_ws` folder. Edit it and set both the `robot_hostname` and `your_hostname` variables to the specifics of your system. 
+
+### Testing the setup
+To test the setup for connecting to a physical robot, start by launching the image
+```./launch_full.sh```
+
+From the `terminator` prompt run the following commands:
+```
+$ cd ros_ws
+$ ./intera.sh 
+$ rosrun intera_examples head_wobbler.py
+``` 
+## Going further
+Once you have everything setup you can take a look at the [Sawyer documentation](https://support.rethinkrobotics.com/support/solutions) for more information.
 
 
