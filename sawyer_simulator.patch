@@ -1,0 +1,10 @@
+diff --git a/sawyer_simulator.rosinstall b/sawyer_simulator.rosinstall
+index 46d7d98..b7340b2 100644
+--- a/sawyer_simulator.rosinstall
++++ b/sawyer_simulator.rosinstall
+@@ -13,4 +13,4 @@
+ - git:
+     local-name: sawyer_simulator
+     uri: https://github.com/RethinkRobotics/sawyer_simulator.git
+-    version: master
++    version: noetic_devel

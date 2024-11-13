@@ -1,4 +1,4 @@
-FROM ros:melodic-perception
+FROM ros:noetic-perception
 
 RUN apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 4B63CF8FDE49746E98FA01DDAD19BAB3CBF125EA
 
@@ -17,17 +17,14 @@ RUN apt-get update && apt-get install --no-install-recommends -y \
 # From https://sdk.rethinkrobotics.com/intera/Workstation_Setup
 RUN apt-get update && apt-get install --no-install-recommends -y \
 git-core \
-python-rosdep \
-python-rosinstall \
-python-rosinstall-generator \
-python-wstool \
+python3-rosdep \
+python3-rosinstall \
+python3-rosinstall-generator \
+python3-wstool \
 build-essential \
 git-core \
-python-argparse \
-python-vcstools \
-python-pip \
-ros-${ROS_DISTRO}-control-msgs \
-ros-${ROS_DISTRO}-joystick-drivers \
+python3-vcstools \
+python3-pip \
 ros-${ROS_DISTRO}-control-msgs \
 ros-${ROS_DISTRO}-xacro \
 ros-${ROS_DISTRO}-tf2-ros \
@@ -51,6 +48,9 @@ ros-${ROS_DISTRO}-tf-conversions \
 ros-${ROS_DISTRO}-kdl-parser \
 ros-${ROS_DISTRO}-moveit \
 ros-${ROS_DISTRO}-roslint \
+&& rm -rf /var/lib/apt/lists/*
+
+RUN apt-get update && apt-get dist-upgrade ros-noetic-rostime -y \
 && rm -rf /var/lib/apt/lists/*
 
 ARG USER=ros
