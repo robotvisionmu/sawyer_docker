@@ -61,26 +61,6 @@ To manually turn the setting on you can use the following command:
 systemd-resolve --set-mdns=yes --interface=<<ETHERNET_INTERFACE_NAME>>
 ```
 
-To set this up to automatically switch on you should place a NetworkManager dispatcher script in `/etc/NetworkManager/dispatcher.d/`. See [the following article for more details](https://askubuntu.com/questions/1111652/network-manager-script-when-interface-up).
-
-Below is an example script. Save it in the above folder e.g. as `mdns-on-eth`, ensuring that you make it executable (i.e. `sudo chmod +x mdns-on-eth`)
-```
-#!/usr/bin/env bash
-
-interface=$1
-event=$2
-
-if [[ $interface != "<<ETHERNET_INTERFACE_NAME>>" ]] || [[ $event != "up" ]]
-then
-  return 0
-fi
-
-echo "setting mdns=on on interface=$interface" | systemd-cat -p info -t dispatch_script
-systemd-resolve --set-mdns=yes --interface=<<ETHERNET_INTERFACE_NAME>>
-```
-
-To test your setup you should unplug and plug in your ethernet cable to your Sawyer robot. Ensure that you can ping the robot from your host terminal using the robot's .local hostname i.e. `ROBOTSERIALNO.local` (where ROBOTSERIAL is read from the back of the Sawyer control computer chassis). Then launch the docker container (i.e.`./launch_full.sh`). From inside your container you should then try to ping your robot using its `ROBOTSERIALNO.local` hostname.
-
 ### Configure `intera.sh`
 Finally, you will need to add your robot name and hostname to the `intera.sh` script. You will find this in the `ros_ws` folder. Edit it and set both the `robot_hostname` and `your_hostname` variables to the specifics of your system. 
 
