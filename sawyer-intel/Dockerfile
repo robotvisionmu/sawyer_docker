@@ -49,6 +49,7 @@ ros-${ROS_DISTRO}-kdl-parser \
 ros-${ROS_DISTRO}-moveit \
 ros-${ROS_DISTRO}-roslint \
 ros-${ROS_DISTRO}-librealsense* \
+ros-${ROS_DISTRO}-realsense* \
 && rm -rf /var/lib/apt/lists/*
 
 RUN apt-get update && apt-get dist-upgrade ros-noetic-rostime -y \
