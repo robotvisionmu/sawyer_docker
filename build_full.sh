@@ -21,8 +21,8 @@ docker network rm robot_net 2>/dev/null || true
 
 docker network create \
   --driver ipvlan \
-  --subnet 192.168.1.0/24 \
-  --gateway 192.168.1.1 \
+  --subnet 192.168.2.0/24 \
+  --gateway 192.168.2.1 \
   -o ipvlan_mode=l2 \
   -o parent=$WIFI_IFACE \
   robot_net
@@ -31,4 +31,4 @@ docker build $BUILD_ARGS -t sawyer-intel sawyer-intel
 
 echo "Running script"
 
-./run_command.sh -i /home/$USER/ros_sawyer/sawyer_docker/workstation_setup.sh
+NETWORK=bridge ./run_command.sh -i /home/$USER/ros_sawyer/sawyer_docker/workstation_setup.sh
